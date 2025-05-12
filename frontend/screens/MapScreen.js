@@ -26,7 +26,7 @@ export default function MapScreen() {
           });
       }
     })();
-    fetch(`http://192.168.1.142:3000/places/${user.nickname}`)
+    fetch(`https://locapic-black.vercel.app/places/${user.nickname}`)
       .then(response => response.json())
       .then(data => {
         dispatch(addPlace(data.places))
@@ -39,7 +39,7 @@ export default function MapScreen() {
   };
 
   const handleNewPlace = () => {
-    fetch('http://192.168.1.142:3000/places', {
+    fetch('https://locapic-black.vercel.app/places', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({ nickname: user.nickname, name: newPlace, latitude: tempCoordinates.latitude, longitude: tempCoordinates.longitude }),
